@@ -13,9 +13,9 @@ class Atbash
 
   def self.edit(word)
     arr = CIPHER.values_at(*word.downcase.gsub(/\W/, '').chars)
-      arr.each_slice(5).map do |s|
-        s.join('')
-      end
+    arr.each_slice(5).map do |s|
+      s.join('')
+    end
     .join(' ')
   end
 end
