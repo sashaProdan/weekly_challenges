@@ -23,7 +23,7 @@ class Translation
     arr.each do |codon|
       raise InvalidCodonError unless TABLE.keys.include?(codon)
       return proteins if of_codon(codon) == 'STOP'
-      proteins << TABLE.values_at(codon).join('')
+      proteins << of_codon(codon)
     end
     proteins
   end
