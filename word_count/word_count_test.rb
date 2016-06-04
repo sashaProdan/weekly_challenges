@@ -33,7 +33,6 @@ class PhraseTest < Minitest::Test
   end
 
   def test_ignore_punctuation
-    skip
     phrase = Phrase.new('car : carpet as java : javascript!!&@$%^&')
     counts = {
       'car' => 1, 'carpet' => 1, 'as' => 1,
