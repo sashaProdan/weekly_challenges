@@ -1,10 +1,18 @@
 class House
-
-  ...
+  def self.recite
+    text = pieces.reverse
+    str = ''
+    counter = 0
+    while counter < text.length do
+      str << "This is " + text[0..counter].reverse.join(" ") + "\n\n"
+      counter += 1
+    end
+    str
+  end
 
   private
 
-  def pieces
+  def self.pieces
     [
       ['the horse and the hound and the horn', 'that belonged to'],
       ['the farmer sowing his corn', 'that kept'],
@@ -20,4 +28,4 @@ class House
       ['the house that Jack built']
     ]
   end
-
+end
