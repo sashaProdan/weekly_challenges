@@ -94,7 +94,6 @@ that worried the cat
 that killed the rat
 that ate the malt
 that lay in the house that Jack built.
-
     RHYME
     assert_equal expected, House.recite
   end

@@ -1,20 +1,18 @@
 class House
-
   def self.recite
-    text = pieces.reverse
-    str = ''
-    counter = 0
-    while counter < text.length
-      s = text[0..counter].reverse.map { |arr| arr.join("\n") }
-      str << "This is #{s.join(' ')}.\n\n"
-      counter += 1
-    end
-    str - str.chars.last
+    new.recite
+  end
+
+  def recite
+    rhyme = pieces.reverse
+    rhyme.map do |a|
+      "This is #{rhyme[0..rhyme.index(a)].reverse.map{ |a| a.join("\n") }.join(" ")}.\n\n"
+    end.join.chomp
   end
 
   private
 
-  def self.pieces
+  def pieces
     [
       ['the horse and the hound and the horn', 'that belonged to'],
       ['the farmer sowing his corn', 'that kept'],
@@ -31,5 +29,3 @@ class House
     ]
   end
 end
-
-p House.recite
