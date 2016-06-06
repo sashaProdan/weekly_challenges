@@ -1,13 +1,15 @@
 class House
+
   def self.recite
     text = pieces.reverse
     str = ''
     counter = 0
-    while counter < text.length do
-      str << "This is " + text[0..counter].reverse.join(" ") + "\n\n"
+    while counter < text.length
+      s = text[0..counter].reverse.map { |arr| arr.join("\n") }
+      str << "This is #{s.join(' ')}.\n\n"
       counter += 1
     end
-    str
+    str - str.chars.last
   end
 
   private
@@ -29,3 +31,5 @@ class House
     ]
   end
 end
+
+p House.recite
