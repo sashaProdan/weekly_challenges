@@ -6,7 +6,10 @@ class House
   def recite
     rhyme = pieces.reverse
     rhyme.map do |a|
-      "This is #{rhyme[0..rhyme.index(a)].reverse.map{ |a| a.join("\n") }.join(" ")}.\n\n"
+      "This is #{rhyme[0..rhyme.index(a)]
+                               .reverse
+                               .map{ |a| a.join("\n") }
+                               .join(" ")}.\n\n"
     end.join.chomp
   end
 
