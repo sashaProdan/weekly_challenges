@@ -1,9 +1,5 @@
 class House
   def self.recite
-    new.recite
-  end
-
-  def recite
     rhyme = pieces.reverse
     rhyme.map do |a|
       "This is #{rhyme[0..rhyme.index(a)]
@@ -15,7 +11,7 @@ class House
 
   private
 
-  def pieces
+  def self.pieces
     [
       ['the horse and the hound and the horn', 'that belonged to'],
       ['the farmer sowing his corn', 'that kept'],
