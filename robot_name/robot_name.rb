@@ -22,10 +22,6 @@ class Robot
   end
 
   def no_duplicate(name)
-    if @@robots.include? name
-      reset
-    else
-      name
-    end
+    (@@robots.include? name) ? reset : name
   end
 end
