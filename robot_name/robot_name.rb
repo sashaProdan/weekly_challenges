@@ -2,23 +2,23 @@ class Robot
   attr_accessor :name
   @@robots = []
   def initialize
-    @name = self.random_name
-    @@robots << self.name
+    @name = random_name
+    @@robots << name
   end
 
   def random_name
     name = ''
     2.times do
-      name  << ('a'..'z').to_a.sample
+      name << ('a'..'z').to_a.sample
     end
     3.times do
-      name  << (1..9).to_a.sample.to_s
+      name << (1..9).to_a.sample.to_s
     end
     no_duplicate(name.upcase)
   end
 
   def reset
-    @name = self.random_name
+    @name = random_name
   end
 
   def no_duplicate(name)
@@ -28,8 +28,4 @@ class Robot
       name
     end
   end
-
 end
-
-
-
