@@ -24,14 +24,12 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_with_single_values
-    skip
     input = '12WB12W3B24WB'
     output = 'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB'
     assert_equal output, RunLengthEncoding.decode(input)
   end
 
   def test_decode_encode_combination
-    skip
     input = 'zzz ZZ  zZ'
     output = 'zzz ZZ  zZ'
     assert_equal output, RunLengthEncoding.decode(RunLengthEncoding.encode(input))
@@ -45,7 +43,6 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_unicode
-    skip
     input = '⏰3⚽2⭐⏰'
     output = '⏰⚽⚽⚽⭐⭐⏰'
     assert_equal output, RunLengthEncoding.decode(input)
