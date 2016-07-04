@@ -1,25 +1,18 @@
 module PerfectNumber
   def self.classify(num)
-    raise RuntimeError, "Please enter a positive number!" if num < 0
+    raise RuntimeError, "Please enter a positive number!" if num < 2
 
-    if prime?(num) || sum_of_factors(num) < num
+    sum_of_factors = factors(num).inject(:+)
+    if sum_of_factors < num
       'deficient'
-    elsif sum_of_factors(num) == num
+    elsif sum_of_factors == num
       'perfect'
-    elsif sum_of_factors(num) > num
+    elsif sum_of_factors > num
       'abundant'
     end
   end
 
-  def self.prime?(num)
-    (2...num).all? { |divisor| num % divisor != 0 }
-  end
-
   def self.factors(num)
     (1...num).select {|divisor| num % divisor == 0}
-  end
-
-  def self.sum_of_factors(num)
-    factors(num).inject(:+)
   end
 end
