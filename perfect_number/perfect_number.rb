@@ -1,23 +1,16 @@
 class RuntimeError < StandardError; end
+
 module PerfectNumber
-
   def self.classify(num)
-    raise RuntimeError if num < 0
-    if prime?(num)
-      'deficient'
-    else
-      if sum_of_factors(num) == num
-        'perfect'
-      elsif sum_of_factors(num) > num
-        'abundant'
-      elsif sum_of_factors(num) < num
-        'deficient'
-      end
-    end
-  end
+    raise RuntimeError if num <= 0
 
-  def self.factors(num)
-    (1...num).select {|divisor| num % divisor == 0}
+    if prime?(num) || sum_of_factors(num) < num
+      'deficient'
+    elsif sum_of_factors(num) == num
+      'perfect'
+    elsif sum_of_factors(num) > num
+      'abundant'
+    end
   end
 
   def self.prime?(num)
@@ -25,6 +18,6 @@ module PerfectNumber
   end
 
   def self.sum_of_factors(num)
-    factors(num).inject(0, :+)
+    (1...num).select {|divisor| num % divisor == 0}.inject(0, :+)
   end
 end
